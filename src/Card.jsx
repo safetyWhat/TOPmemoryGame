@@ -1,19 +1,13 @@
-import { useState } from "react";
 import PropTypes from 'prop-types';
 import './Card.css';
 
-function Card({ imageSrc, imageName, addScore}) {
-    const [isClicked, changeClick] = useState(false);
-
+function Card({ imageSrc, imageName, changeClick }) {
     const onCardClick = () => {
-        if (!isClicked) {
-            changeClick(prevState => !prevState);
-            addScore();
-        } else {
-            alert('You already clicked that one!');
-            changeClick(prevState => !prevState);
-        }
+        console.log('clicked');
+        changeClick();
+        console.log('done');
     }
+    
 
     return (
         <div onClick={onCardClick} className="card">
@@ -26,7 +20,8 @@ function Card({ imageSrc, imageName, addScore}) {
 Card.propTypes = {
     imageSrc: PropTypes.string.isRequired,
     imageName: PropTypes.string.isRequired,
-    addScore: PropTypes.func,
+    isClicked: PropTypes.bool,
+    changeClick: PropTypes.func.isRequired,
 }
 
 export default Card
