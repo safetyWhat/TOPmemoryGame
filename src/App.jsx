@@ -60,7 +60,17 @@ function App() {
 
   return (
     <div>
-      <Score score={currScore} highScore={highScore} />
+      <div id="header">
+        <div className="leftHeader">
+          <p id="title">Memory Game</p>
+          <p id="instructions">
+            Gain points by clicking on images, but keep track of 
+            which ones you have already clicked. Clicking 
+            on one twice ends your turn.
+          </p>
+        </div>
+        <Score score={currScore} highScore={highScore} />
+      </div>
       <div id='gameContainer'>
         {cards.map((image) => (
           <Card 
